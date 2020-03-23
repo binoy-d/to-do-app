@@ -1,0 +1,52 @@
+body{
+    background-color: #222222;
+}
+
+.to-do-list{
+    list-style-type: none;
+    color:black;
+    padding-left: 0px;
+    margin:0px;
+}
+
+
+.to-do-heading{
+    color: white;
+    text-align: center;
+    background-color: #A61C3C;
+    margin-bottom: 0px;
+    padding:1rem;
+}
+
+.list-wrapper{
+    background-color: #e8e8e8;
+    width:360px;
+    margin:auto;
+}
+
+.to-do-text{
+    
+    position:relative;
+}
+
+.to-do-item{
+    font-size: xx-large;
+}
+
+.to-do-item:nth-child(even){
+    list-style-type: none;
+    background-color: #999999;
+}
+.to-do-item:nth-child(odd){
+    list-style-type: none;
+    background-color: #e8e8e8;
+}
+
+.delete-button{
+    text-align: center;
+    display: inline-block;
+    background-color:red;
+    color:white;
+    margin:0px;
+    height:100%;
+}
