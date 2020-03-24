@@ -12,18 +12,35 @@ body{
 
 .to-do-heading{
     color: white;
+    width:100%;
+    margin:none;
+    font-size: x-large;
     text-align: center;
+    border:none;
     background-color: #A61C3C;
-    margin-bottom: 0px;
     padding:1rem;
+    cursor:default;
 }
-
+.to-do-heading::placeholder{
+    color: white;
+    font-size: x-large;
+    text-align: center;
+    opacity:1;
+}
 .list-wrapper{
     background-color: #e8e8e8;
-    width:360px;
+    width:100%;
+    margin-top:1rem;
+    padding:0px;
+    display:inline-block;
+}
+.col{
+    display:inline-block;
+}
+.row{
+    width:100%;
     margin:auto;
 }
-
 .to-do-text{
     padding-left: 1rem;
     display:inline-block;
@@ -38,7 +55,7 @@ body{
 }
 .to-do-item{
     font-size: x-large;
-    
+    cursor:default;
 }
 
 .to-do-item:nth-child(even){
@@ -58,6 +75,11 @@ body{
     background-color:red;
     color:white;
     margin:0px;
-    width:40px;
+    width:0px;
     transition:0.15s linear;
+}
+
+.add-list-button{
+    margin:2rem;
+    float: right;
 }

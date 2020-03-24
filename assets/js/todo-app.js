@@ -2,23 +2,24 @@ $(".delete-button").text("");
 $(".delete-button").css("width","0px");
 
 var last_item;
+var numLists = 1;
 
-$( ".to-do-list" ).on( "mouseover",".to-do-item", function(){
+$( ".row" ).on( "mouseover",".to-do-item", function(){
     console.log("mouse entered")
     $(this).children(".delete-button").css("width","40px");
     $(this).children(".delete-button").text("🗑");
 });
 
-$( ".to-do-list" ).on( "mouseout",".to-do-item", function(){
+$( ".row" ).on( "mouseout",".to-do-item", function(){
     $(this).children(".delete-button").css("width","0px");
     $(this).children(".delete-button").text("");
 });
 
-$( ".to-do-list" ).on( "click",".to-do-item", function(){
+$( ".row" ).on( "click",".to-do-item", function(){
     console.log("marked as completed");
     $(this).children(".to-do-text").toggleClass("completed");
 });
-$( ".to-do-list" ).on( "click",".to-do-item .delete-button", function(){
+$( ".row" ).on( "click",".delete-button", function(){
     console.log("deleted");
     last_item = $(this).closest(".to-do-item").detach();
 });
@@ -32,14 +33,31 @@ $("document").on("keydown",function(e){
     } 
 });
 
-$('input[type="text"]').on("keypress",function(event){
+$('.row').on("keypress",".to-do-input",function(event){
     if(event.which===13){
-       
-        var txt = '<li class = "to-do-item"><span class="delete-button">X</span><span class="to-do-text">'+$(this).val()+'</span></li>'
-        $(".to-do-list").append(txt)
-        
+        var txt = '<li class = "to-do-item"><span class="delete-button"></span><span class="to-do-text">'+$(this).val()+'</span></li>'
+        var listnum = $(this).attr("id").substr($(this).attr("id").indexOf('-')+1,$(this).attr("id").length);
+        console.log(listnum);
+        $("#list-"+listnum).append(txt);
         $(".delete-button").text("");
         $(".delete-button").css("width","0px");
         $(this).val("");
     }
 });
+
+
+function addList(){
+    numLists++;
+    console.log("num lists: "+numLists);
+    var lstHTML = getListHTML();
+    $(".row").append(lstHTML);
+}
+
+function getListHTML(){
+    var lstHTML = '<div class="col-12 col-md-6 col-lg-4">';
+    lstHTML+='<div class="list-wrapper">';
+    lstHTML+='<input type="text" placeholder="List '+numLists+'" class="to-do-heading"></input>';
+    lstHTML+='<div class="input-wrapper"><input class = "to-do-input" type="text" placeholder="add a todo" id="input-'+numLists+'"></input></div>';
+    lstHTML+='<ul class = "to-do-list" id="list-'+numLists+'"></ul></div></div>';
+    return lstHTML;
+}
