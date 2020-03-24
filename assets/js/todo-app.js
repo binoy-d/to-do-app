@@ -54,10 +54,31 @@ function addList(){
 }
 
 function getListHTML(){
-    var lstHTML = '<div class="col-12 col-md-6 col-lg-4">';
+    var lstHTML = '<div class="col-12 col-md-6 col-lg-4 full-list-card">';
     lstHTML+='<div class="list-wrapper">';
-    lstHTML+='<input type="text" placeholder="List '+numLists+'" class="to-do-heading"></input>';
+    lstHTML+='<div class="heading-wrapper"><span class="delete-list-button"></span><input type="text" placeholder="List '+numLists+'" class="to-do-heading"></input></div>';
     lstHTML+='<div class="input-wrapper"><input class = "to-do-input" type="text" placeholder="add a todo" id="input-'+numLists+'"></input></div>';
     lstHTML+='<ul class = "to-do-list" id="list-'+numLists+'"></ul></div></div>';
     return lstHTML;
 }
+
+
+
+
+
+$( ".row" ).on( "mouseover",".heading-wrapper", function(){
+    console.log("mouse entered")
+    $(this).children(".delete-list-button").css("width","30px");
+    $(this).children(".delete-list-button").text("🗑");
+});
+
+$( ".row" ).on( "mouseout",".heading-wrapper", function(){
+    $(this).children(".delete-list-button").css("width","0px");
+    $(this).children(".delete-list-button").text("");
+});
+
+$( ".row" ).on( "click",".delete-list-button", function(){
+    console.log($(this).closest(".full-list-card"));
+
+    last_item = $(this).closest(".full-list-card").detach();
+});

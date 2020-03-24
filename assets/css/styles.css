@@ -9,17 +9,25 @@ body{
     margin:0px;
 }
 
-
+.heading-wrapper{
+    background-color: #840000;
+    padding:none;
+    margin:none;
+    width:100%;
+}
 .to-do-heading{
     color: white;
-    width:100%;
+    width:auto;
+    max-width:80%;
     margin:none;
-    font-size: x-large;
+    font-size: xx-large;
     text-align: center;
+    box-sizing: border-box;
+    margin:auto;
     border:none;
-    background-color: #A61C3C;
-    padding:1rem;
+    background-color: #840000;
     cursor:default;
+    display:inline-block;
 }
 .to-do-heading::placeholder{
     color: white;
@@ -79,6 +87,18 @@ body{
     transition:0.15s linear;
 }
 
+.delete-list-button{
+    text-align: center;
+    display: inline-block;
+    background-color:red;
+    color:white;
+    margin:0px;
+    width:0px;
+    transition:0.15s linear;
+    font-size:x-large;
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
 .add-list-button{
     margin:2rem;
     float: right;
